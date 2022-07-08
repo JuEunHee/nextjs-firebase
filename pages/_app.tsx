@@ -1,8 +1,22 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import '@/styles/globals.scss';
+import type { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo';
+import { APP_TITLE } from '@/environments';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <>
+    <DefaultSeo
+      titleTemplate={`%s | ${APP_TITLE}`}
+      defaultTitle={APP_TITLE}
+      additionalLinkTags={[
+        {
+          rel: 'icon',
+          href: '/favicon.ico',
+        },
+      ]}
+    />
+    <Component {...pageProps} />
+  </>
+);
 
-export default MyApp
+export default MyApp;
