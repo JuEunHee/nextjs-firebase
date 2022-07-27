@@ -1,6 +1,7 @@
 import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
+import { ToastContainer } from 'react-toastify';
 import { APP_TITLE } from '@/environments';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
@@ -16,6 +17,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       ]}
     />
     <Component {...pageProps} />
+    <ToastContainer position="bottom-right" theme="colored" newestOnTop />
   </>
 );
 
